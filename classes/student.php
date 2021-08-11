@@ -27,4 +27,12 @@ class Student {
         } else false;
 
     }
+
+
+    public function get_all_data() {
+        $query = "SELECT * FROM $this->table_name";
+        $obj = $this->conn->prepare($query);
+        $obj->execute();
+        return $obj->get_result();
+    }
 }
